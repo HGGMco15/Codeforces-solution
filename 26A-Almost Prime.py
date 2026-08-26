@@ -1,15 +1,23 @@
-n = int(input())
- 
-div_count = [0] * (n + 1)
- 
-for p in range(2, n + 1):
-    if div_count[p] == 0:
-        for multiple in range(p, n + 1, p):
-            div_count[multiple] += 1
- 
-count = 0
-for i in range(2, n + 1):
-    if div_count[i] == 2:
-        count += 1
- 
-print(count)
+def check(m):
+    if m<=1:
+        return False
+    if m<=3:
+        return True
+    if m%2==0 or m%3==0:
+        return False
+    i=5
+    while i*i<=m:
+        if m%i==0 or m%(i+2)==0:
+            return False
+        i+=6
+    return True
+n=int(input())
+cout1=0
+for x in range(1,n+1):
+    cout=0
+    for y in range(1,x+1):
+        if check(y) and x%y==0:
+            cout+=1
+    if cout==2:
+        cout1+=1
+print(cout1)
