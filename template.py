@@ -1,12 +1,26 @@
+#Code by HGGMco15
+#Module
 from collections import Counter,defaultdict
+import itertools
 import math
-import random
 import sys
+#Fast I/O
 input=sys.stdin.readline
-t=int(input())
-ans=[]
-rd=random.randint(1,10**9)
-for x in range(t):
-    #code goes here
-    ans.append(str(cout))
-print("\n".join(ans))
+#Custom function
+def inp():
+    sys.stdin=open("","r")
+    sys.stdout=open("","w") 
+def prime(s):
+    if s<2:
+        return False
+    if s<4:
+        return True
+    if s%2==0 or s%3==0:
+        return False
+    i=5
+    while i*i<=s:
+        if s%i==0 or s%(i+2)==0:
+            return False
+        i+=6
+    return True
+#Main
