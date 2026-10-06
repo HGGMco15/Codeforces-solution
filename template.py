@@ -7,11 +7,11 @@ import math
 import sys
 #Fast I/O & Set-up
 input=sys.stdin.readline
-sys.setrecursionlimit(200000)
 #Custom function
-def inp():
-    sys.stdin=open("","r")
-    sys.stdout=open("","w")
+def inp(flag):
+    if flag:
+        sys.stdin=open("","r")
+        sys.stdout=open("","w")
 def palindrome(s):
     return s==s[::-1] 
 def prime(s):
@@ -42,7 +42,7 @@ def binary_search(ar,tar):
 def binary_search_dup(ar,tar,flag):
     if flag:
         return bisect.bisect_left(ar,tar)
-    elif (bisect.bisect_right(ar,tar)-1)>=0 and ar[bisect.bisect_right(ar,tar)-1]==tar:
+    if (bisect.bisect_right(ar,tar)-1)>0 and ar[bisect.bisect_right(ar,tar)-1]==tar:
         return bisect.bisect_right(ar,tar)-1
-    return -1
+    return 1
 #Main
