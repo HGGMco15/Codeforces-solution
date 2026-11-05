@@ -48,32 +48,29 @@
 
 #Code by HGGMco15 (Free to read but not copy)
 #Module
-from collections import Counter,defaultdict
+from collections import Counter,defaultdict,deque
 import bisect
 import itertools
 import math
 import sys
 #Fast I/O & Set-up
 input=sys.stdin.readline
+sys.setrecursionlimit(10000)
 #Custom function
-def inp(flag):
+def inp(LOCAL_FILE):
     #For file input/output problems
-    if flag:
+    if LOCAL_FILE:
         sys.stdin=open("","r") 
         sys.stdout=open("","w")
 def palindrome(s):
     return s==s[::-1] 
 def prime(s):
-    if s<2:
-        return False
-    if s<4:
-        return True
-    if s%2==0 or s%3==0:
-        return False
+    if s<2: return False
+    if s<4: return True
+    if s%2==0 or s%3==0: return False
     i=5
     while i*i<=s:
-        if s%i==0 or s%(i+2)==0:
-            return False
+        if s%i==0 or s%(i+2)==0: return False
         i+=6
     return True
 def binary_search(ar,tar):
@@ -88,10 +85,14 @@ def binary_search(ar,tar):
             else:
                 hi=mid-1
     return -1
-def binary_search_dup(ar,tar,flag):
-    if flag:
-        return bisect.bisect_left(ar,tar)
-    if (bisect.bisect_right(ar,tar)-1)>0 and ar[bisect.bisect_right(ar,tar)-1]==tar:
-        return bisect.bisect_right(ar,tar)-1
-    return 1
-#Main
+def binary_search_dup(ar, tar, first_occurence=True):
+    if first_occurence:
+        idx = bisect.bisect_left(ar, tar)
+        return idx if idx < len(ar) and ar[idx] == tar else -1
+    else:
+        idx = bisect.bisect_right(ar, tar) - 1
+        return idx if idx >= 0 and ar[idx] == tar else -1
+def inpi(): return int(input())
+def linp(): return list(map(int,input().split()))
+def mtinp(): return map(int,input().split())
+def inps(): return str(input())
