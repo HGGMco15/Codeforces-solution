@@ -59,9 +59,11 @@ sys.setrecursionlimit(10000)
 #Custom function
 def inp(LOCAL_FILE):
     #For file input/output problems
+    global input
     if LOCAL_FILE:
-        sys.stdin=open("","r") 
-        sys.stdout=open("","w")
+        sys.stdin=open("CAU4.INP","r")
+        sys.stdout=open("CAU4.OUT","w")
+        input=sys.stdin.readline
 def palindrome(s):
     return s==s[::-1] 
 def prime(s):
@@ -92,7 +94,14 @@ def binary_search_dup(ar, tar, first_occurence=True):
     else:
         idx = bisect.bisect_right(ar, tar) - 1
         return idx if idx >= 0 and ar[idx] == tar else -1
+def prefix_sum(a,n):
+    d=[0]+a
+    pref=[0]*(n+1)
+    for x in range(1,n+1):
+        pref[x]=pref[x-1]+d[x]
+    return pref
 def inpi(): return int(input())
 def linp(): return list(map(int,input().split()))
 def mtinp(): return map(int,input().split())
 def inps(): return str(input())
+#Main
