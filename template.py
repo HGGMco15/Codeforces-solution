@@ -45,7 +45,7 @@
 # ⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉⠉
 # "Go ahead and live with your head held high. No matter how devastated you may be by your own weakness or uselessness,
 # set your heart ablaze.Grit your teeth and look straight ahead." - Kyojuro Rengoku.
-
+ 
 #Code by HGGMco15 (Free to read but not copy)
 #Module
 from collections import Counter,defaultdict,deque
@@ -53,7 +53,9 @@ import bisect
 import itertools
 import math
 import sys
+import random
 #Fast I/O & Set-up
+debug=random.randint(1,10**9)
 input=sys.stdin.readline
 sys.setrecursionlimit(10000)
 #Custom function
